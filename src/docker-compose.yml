@@ -1,0 +1,35 @@
+services:
+  web:
+    build:
+      context: ./server/attacker
+    command: gunicorn --config gunicorn.conf.py --bind 0.0.0.0:11000"
+    volumes:
+      - ./logs:/usr/src/app/logs:rw
+      - ./datasets:/usr/src/app/datasets
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_PORT=5432
+      - DB_NAME=extension_fp
+      - DB_USER=raider
+      - DB_PASS=57b1bd2bafca5a7ce9793b4b1f83b7b7
+      - MODULE=hook
+      - DATASET=raider
+      - EXTENSION_TYPE=chrome
+    expose:
+      - 11000
+    extra_hosts:
+      - "testserver.com:127.0.0.1"
+  
+  nginx:
+    build: ./nginx
+    ports:
+      - 11000:80
+      - 11010:443
+    volumes:
+      - ./cert:/etc/letsencrypt:rw
+      - ./nginx_logs:/var/logs:rw
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:

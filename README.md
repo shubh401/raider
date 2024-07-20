@@ -17,7 +17,15 @@ The test pages that we used for evaluation are available in the ``pages/honey`` 
 
 ---
 
+### Data-collection Framework:
+The data collection framework is available in the ``src`` directory.
 
+---
+
+### Demo: Script-injection order:
+We provide with the example set of extensions in MV2 and MV3 and a test page to test with the script-injection order of extensions with different configuration and at different injection point in the ``tests`` directory. This is important for our study as in most cases, the attacker web page wil be able to capture the execution traces of the extenion-injected script.
+
+---
+
+### Relevant Global JavaScript APIs & Properties:
 The ``hooks.json`` file contains the list of Global JavaScript APIs and properties we instrumented for this study to capture any extension-induced traces at runtime.
-
-Please find the __Proof-of-Concepts__ extensions with their uniquely identifying vectors [here](./proof-of-concept).

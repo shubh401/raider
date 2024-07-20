@@ -1,0 +1,15 @@
+bs4
+jsbeautifier
+jsoncomment
+jstyleson
+jsmin
+psycopg
+psycopg_binary
+psycopg2-binary
+psycopg-pool
+pycparser
+retirejs
+sqlparse
+tldextract
+tqdm
+typing_extensions
